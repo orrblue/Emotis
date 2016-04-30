@@ -8,6 +8,7 @@ body{
 
 title{
     position: fixed;
+    height: 97%
 }
 
 h1{
@@ -36,6 +37,4 @@ p{
     margin: auto;
     bottom: 4em;
     right: 4em;
-    margin-top: 20px;
-    padding: 5px;
 }
