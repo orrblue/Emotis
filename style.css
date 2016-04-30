@@ -1,0 +1,24 @@
+h1{
+    color: red;
+    text-align: center;
+    font-family: sans-serif;
+    
+}
+
+p{
+    font-family: sans-serif;
+}
+
+#Map{
+    background-color: beige;
+    width: 1000px;
+    height: 400px;
+    margin: auto;
+}
+
+#Textbox{
+    background-color: deepskyblue;
+    width: 300px;
+    height: auto;
+    margin: auto;
+}
