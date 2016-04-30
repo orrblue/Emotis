@@ -6,10 +6,6 @@ body{
     height: 97%
 }
 
-p{
-    font-family: sans-serif;
-}
-
 #map{
     position: fixed;
     top: 0;
@@ -37,6 +33,5 @@ p{
     margin: auto;
     bottom: 3em;
     right: 5em;
-    margin-top: 20px;
-    padding: 5px;
+    padding: 0.4em;
 }
