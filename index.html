@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html>
+<head>
     <title>Emotis</title>
-    
-    <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <!--<script type="text/javascript" src="map.js"></script>-->
- 
-    </head>
-    
-<body>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--<script type="text/javascript" src="map.js"></script>-->
+</head>
 
-<h1>Emotis</h1>
-    
+<body>
+ 
 <div id="map">
     <script src="map.js">   
         function initMap() {
@@ -23,22 +19,27 @@
     </script>
     
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?                             kay=AIzaSyDIikgXtQuY_gaBweqTqx-QuHCDYJ2Fsj4
+        src="https://maps.googleapis.com/maps/api/js?                             key=AIzaSyDIikgXtQuY_gaBweqTqx-QuHCDYJ2Fsj4
         &libraries=visualization&callback=initMap">
     </script>
 </div>
-    
-   
 
-    
+<div id="banner">
+     <h1>Emotis</h1>
+</div>
+
 <div id="chatbox">
     <form action="">
-        <input type="text" name="fname" placeholder="Say something...">           <input type="submit" value="Submit">
+        <input type="text" name="fname" placeholder="Say something...">
+        <select style="background-color: gold; color: white;" onChange="style.backgroundColor=this.options[this.selectedIndex].value;">
+        <option style="background-color: lime; color: white;" value="lime" />Happy
+        <option style="background-color: gold; color: white;" value="gold" SELECTED />Neutral
+        <option style="background-color: blue; color: white;" value="blue" />Sad
+        <option style="background-color: red; color: white;" value="red" />Angry
+        </select>
+        <input type="submit" value="Submit">
     </form>    
 </div>
-    
-    
-    
-    
+
 </body>
 </html>
