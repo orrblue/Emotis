@@ -10,13 +10,7 @@ setInterval(function () {
                 position.coords.latitude, position.coords.longitude));
         });
     }
-    
-    for (var bubble in textBubbleArray) {
-        $.ajax({
-            $(bubble).fadeTo($(bubble).css("opacity") - 0.01 - 0.01 * textBubbleRate)
-        })
-    }
-}, 200);
+}, 5000);
 
 function submit_chatbox() {
     var text = $("#chatbox_input").val();
