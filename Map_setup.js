@@ -20,7 +20,10 @@ function initMap() {
                   featureType: 'poi.park',
                   stylers: [{ visibility: 'on' }]  // Turn on parks points of interest.
                 },{
-                    featureType: 'road.local',
+                  featureType: 'water',
+                  stylers: [{ visibility: 'on' }]  // Turn on water.
+                },{
+                    featureType: 'road.local', //local roads. no highways.
                     stylers: [{visibility: 'on'}]
                 }],
                 disableDoubleClickZoom: true
