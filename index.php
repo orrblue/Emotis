@@ -1,8 +1,5 @@
 <?php
-	session_start();
-
-	// TODO: use of microtime here probably insecure
-	$_SESSION['hashId'] = hash("sha1", $_SERVER['REMOTE_ADDR'] . microtime());
+	include "sessions.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,14 +36,16 @@
 </div>
 
 <div id="chatbox">
-    <input type="text" name="fname" id="chatbox_input" placeholder="Say something..." onkeyup="if (event.keyCode == 13) { this.form.submit(); return false; }">
-    <select style="background-color: gold; color: white;" id="chatbox_color" onChange="style.backgroundColor=this.options[this.selectedIndex].value;">
-    <option style="background-color: lime; color: white;" value="lime" />Happy
-    <option style="background-color: gold; color: white;" value="gold" SELECTED />Meh
-    <option style="background-color: blue; color: white;" value="blue" />Sad
-    <option style="background-color: red; color: white;" value="red" />Angry
-    </select>
-    <input type="submit" value="Send" onclick="submit_chatbox()">
+    <form onsubmit="submit_chatbox()">
+        <input type="text" name="fname" id="chatbox_input" placeholder="Say something...">
+        <select style="background-color: gold; color: white;" id="chatbox_color" onChange="style.backgroundColor=this.options[this.selectedIndex].value;">
+        <option style="background-color: lime; color: white;" value="lime" />Happy
+        <option style="background-color: gold; color: white;" value="gold" SELECTED />Meh
+        <option style="background-color: blue; color: white;" value="blue" />Sad
+        <option style="background-color: red; color: white;" value="red" />Angry
+        </select>
+        <input type="submit" value="Send" onclick="submit_chatbox()">
+    </form>
 </div>
 
 </body>
