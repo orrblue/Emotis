@@ -15,15 +15,16 @@
     </head>
     
 <body>
- 
+
 <div id="map">
-    <script src="map.js">   
+    <script>
         function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 0, lng: 0},
-          zoom: 19,
-          mapTypeId: google.maps.MapTypeId.TERRAIN
-        });
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 0, lng: 0},
+                zoom: 19,
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+            }
+        )};
     </script>
     
     <script async defer
@@ -34,7 +35,7 @@
 </div>
 
 <div id="banner">
-     <h1>Emotis</h1>
+    <h1>Emotis</h1>
 </div>
 
 <div id="chatbox">
