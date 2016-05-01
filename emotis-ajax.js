@@ -3,6 +3,15 @@ $("*").one("click", function () {
     $("#banner").fadeOut("slow");
 });
 
+setInterval(function () {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            map.panTo(google.maps.LatLng(
+                position.coords.latitude, position.coords.longitude));
+        });
+    }
+}, 5000);
+
 function submit_chatbox() {
     var text = $("#chatbox_input").val();
     var color = $("#chatbox_color").val();
@@ -20,7 +29,7 @@ function submit_chatbox() {
                         lng: position.coords.longitude,
                     },
                 }).done(function ( msg ) {
-                    alert("[" + msg + "]");
+                    textBubble(msg);
                     $("#chatbox_input").val() = "";
                 }).fail(function () {
                     alert("Unable to send data to server");
