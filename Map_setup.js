@@ -9,7 +9,7 @@ function initMap() {
             //create map
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 19,
-                mapTypeId: google.maps.MapTypeId.TERRAIN,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
                 styles: [{
                   featureType: 'all',
                   stylers: [{ visibility: 'off' }]  // Turn off all features
