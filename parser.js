@@ -8,11 +8,11 @@ textBubbleRate = 0;
 /*
 
 [{text: ykfffh, color: hjfhfh.....}]
-
-var text = '{ "text": "Hi", "color": "gold", "lat": "34.070297", "lng": "-118.4469386"}';
 */
 
-function printTextBubbles(){
+var defaultPin = '[{ "text": "Hi", "color": "gold", "lat": "34.070297", "lng": "-118.4469386"}]';
+
+/*function printTextBubbles(){
     var length = textArray.length;
     textBubbleRate = length;
     for (i = 0; i < length; i++) {
@@ -24,31 +24,25 @@ function printTextBubbles(){
         textBubbleCounter++;
         //map.setCenter({lat: chatObj.lat, lng: chatObj.lng});
     }
+}*/
+
+function printTextBubble(pin) {
+    var infoWindow = new google.maps.InfoWindow({map: map});
+    infoWindow.setPosition({lat: pin.lat, lng: pin.lng});
+    infoWindow.setContent(pin.text);
+    textBubbleArray[textBubbleCounter++] = infoWindow;
 }
 
+function dropPins(jsonString) {
+    var arr = JSON.decode(jsonString);
 
-function separateText(textString){
-    //separate strings by [] and remove []
-    //return array of text pieces separated by []
-    textArray = [];
-    while(textString.lastIndexOf("]") != -1){
-        bracketPos1 = textString.lastIndexOf("[");
-        bracketPos2 = textString.lastIndexOf("]");
-        //to put in array
-        subStr = textString.substring(bracketPos1, bracketPos2);
-        textArray.push(subStr);
-        //cut off the end
-        textString = textString.substring(0, bracketPos1);
+    textBubbleRate = arr.length();
+    for (i = 0; i < arr.length(); i++) {
+        printTextBubble(arr[i]);
     }
-    
-    printTextBubbles();
-};
+}
 
-$.ajax("get_posts.php")
-.done(separateText)
+//$.ajax("get_posts.php")
+//.done(dropPins);
 
-
-
-
-
-
+dropPins(defaultPin);
