@@ -1,8 +1,5 @@
 <?php
-	session_start();
-
-	// TODO: use of microtime here probably insecure
-	$_SESSION['hashId'] = hash("sha1", $_SERVER['REMOTE_ADDR'] . microtime());
+	include "sessions.php";
 ?>
 <!DOCTYPE html>
 <html>
