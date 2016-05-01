@@ -3,92 +3,19 @@
     <head>
         <title>Emotis</title>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <!--<script type="text/javascript" src="map.js"></script>-->
+
         <script type="text/javascript" src="jquery-latest.min.js"></script> 
         <script type="text/javascript" src="emotis-ajax.js"></script>
     </head>
     
 <body>
  
-<div id="map">
-    <script> 
-        
-        /*function getLocation() {
-            if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-            }
-        }
-
-        function showPosition(position) {
-            var latitude = position.coords.latitude;
-            var longitude = position.coords.longitude;
-            console.log(longitude);
-
-        }
-
-        function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: 34.070297, lng: -118.4469386},
-                zoom: 19,
-                mapTypeId: google.maps.MapTypeId.TERRAIN
-            });
-        
-            var marker;
-            marker = new google.maps.Marker({
-                map: map,
-                draggable: true,
-                animation: google.maps.Animation.DROP,
-                position: {lat: 34.070297, lng: -118.4469386}
-            });
-            */
-        
-        function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 6
-  });
-  var infoWindow = new google.maps.InfoWindow({map: map});
-
-  // Try HTML5 geolocation.
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-}
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-}
-    </script>
+    <div id="map"> </div>
     
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?libraries=visualization&callback=initMap">
-        // Remove key for now
-        // key=AIzaSyDIikgXtQuY_gaBweqTqx-QuHCDYJ2Fsj4origin/gh-pages
-    </script>
-</div>
-
-<div id="banner">
-     <h1>Emotis</h1>
-</div>
-
-<div id="chatbox">
+    <script src="Map_setup.js"></script>
+    <script src="TextBubble.js"></script>
+    
+    <div id="chatbox">
     <input type="text" name="fname" id="chatbox_input" placeholder="Say something...">
     <select style="background-color: gold; color: white;" id="chatbox_color" onChange="style.backgroundColor=this.options[this.selectedIndex].value;">
     <option style="background-color: lime; color: white;" value="lime" />Happy
@@ -96,8 +23,25 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     <option style="background-color: blue; color: white;" value="blue" />Sad
     <option style="background-color: red; color: white;" value="red" />Angry
     </select>
-    <input type="submit" value="Send" onclick="submit_chatbox()">
+    <input type="submit" value="Send" onclick="TextBubble()">
+        <!--onclick="submit_chatbox()"-->
+    </div>
+        
+        <script type="text/javascript" src="Map_setup.js"></script>
+    
+    
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?libraries=visualization&callback=initMap">
+        // Remove key for now
+        // key=AIzaSyDIikgXtQuY_gaBweqTqx-QuHCDYJ2Fsj4origin/gh-pages
+    </script>
+<!--</div>-->
+
+<div id="banner">
+     <h1>Emotis</h1>
 </div>
+
+
 
 </body>
 </html>
