@@ -39,7 +39,7 @@
 </div>
 
 <div id="chatbox">
-    <input type="text" name="fname" id="chatbox_input" placeholder="Say something...">
+    <input type="text" name="fname" id="chatbox_input" placeholder="Say something..." onkeyup="if (event.keyCode == 13) { this.form.submit(); return false; }">
     <select style="background-color: gold; color: white;" id="chatbox_color" onChange="style.backgroundColor=this.options[this.selectedIndex].value;">
     <option style="background-color: lime; color: white;" value="lime" />Happy
     <option style="background-color: gold; color: white;" value="gold" SELECTED />Meh

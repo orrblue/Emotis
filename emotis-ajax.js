@@ -1,7 +1,16 @@
 // Fade out banner on first interaction
-$("*").one("click", function () {
+/*$("*").one("click", function () {
     $("#banner").fadeOut("slow");
-});
+});*/
+
+setInterval(function () {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            map.panTo(google.maps.LatLng(
+                position.coords.latitude, position.coords.longitude));
+        });
+    }
+}, 50000);
 
 function submit_chatbox() {
     var text = $("#chatbox_input").val();
